@@ -1,13 +1,16 @@
-describe('Step', () => {
-    it.skip('Acessar o site e logar na conta', () => {
-        cy.visit('https://coalizao.hml.fabricadigital.com.br');
-        cy.get('.cc-btn').click();
-        cy.get('.btn-account').click();
-        cy.get('#id_username').type('mario');
-        cy.get('#id_password').type('Mario@12');
-        cy.get('.btn-primary').click();
-    });
+describe('Testes', () => {
+
+        // Teste está OK.
+        it.skip('Acessar o site e logar na conta', () => {
+            cy.visit('https://coalizao.hml.fabricadigital.com.br');
+            cy.get('.cc-btn').click();
+            cy.get('.btn-account').click();
+            cy.get('#id_username').type('mario');
+            cy.get('#id_password').type('Mario@12');
+            cy.get('.btn-primary').click();
+        });
     
+        // Travei na parte do preenchimento dos campos de senha, aparentemente o box que aparece está atrapalhando, preciso estudar sobre o elemento (me parece ser um ajax).
         it.skip('Acessar o site e criar uma nova conta', () => {
             cy.visit('https://coalizao.hml.fabricadigital.com.br');
             cy.get('.cc-btn').click();
@@ -22,8 +25,9 @@ describe('Step', () => {
             cy.get('.disclaimer-modal-link').click();
             //cy.get('#id_disclaimer').click();
            // cy.get('#id_recaptcha').check();
-            });
+        });
 
+            // Esse teste está OK, só preciso ver o funcionamento da estrutura de condições.
             it('Exportar dados do perfil de usuário', () => {
                 cy.visit('https://coalizao.hml.fabricadigital.com.br');
                 cy.get('.cc-btn').click();
