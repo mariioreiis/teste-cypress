@@ -7,7 +7,7 @@ describe('Testes de Login', () => {
         })
 
         // Teste está OK.
-        it('Acessar o site e logar na conta', () => {
+        it.skip('Acessar o site e logar na conta', () => {
             cy.get('.cc-btn').click();
             cy.get('.btn-account').click();
             cy.get('#id_username').type('mario');
