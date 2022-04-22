@@ -19,7 +19,7 @@ describe('Step', () => {
             cy.get('#id_email').type('marioreis@123456.com');
             cy.get('#id_password1').type('Lalalala12');
             cy.get('#id_password2').type('Lalalala12');
-            //cy.get('.disclaimer-modal-link').click();
+            cy.get('.disclaimer-modal-link').click();
             //cy.get('#id_disclaimer').click();
            // cy.get('#id_recaptcha').check();
             });
