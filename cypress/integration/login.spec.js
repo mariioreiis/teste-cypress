@@ -2,10 +2,10 @@
 
 describe('Testes de Login', () => {
 
-            beforeEach(() => {
+        beforeEach(() => {
             cy.visit('https://coalizao.hml.fabricadigital.com.br')
         })
-        
+
         // Teste está OK.
         it('Acessar o site e logar na conta', () => {
             cy.get('.cc-btn').click();
