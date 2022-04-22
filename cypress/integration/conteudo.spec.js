@@ -1,7 +1,7 @@
 
 // Testes de conteúdo do site
 
-describe('Testes de Login', () => {
+describe('Testes de Conteúdo', () => {
 
     beforeEach(() => {
         cy.visit('https://coalizao.hml.fabricadigital.com.br')
