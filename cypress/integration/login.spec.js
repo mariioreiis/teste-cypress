@@ -2,21 +2,23 @@
 
 describe('Testes de Login', () => {
 
-        beforeEach(() => {
-            cy.visit('https://coalizao.hml.fabricadigital.com.br')
-        })
-
         // Teste está OK.
-        it.skip('Acessar o site e logar na conta', () => {
-            cy.get('.cc-btn').click();
+        it.only('Acessar o site e logar na conta', () => {
+            cy.visit('/');
             cy.get('.btn-account').click();
-            cy.get('#id_username').type('mario');
-            cy.get('#id_password').type('Mario@12');
+            cy.get('.tile').click();
+            Cypress.env('login_user')
+            Cypress.env('login_user')
+           // cypress.env('login_user');
+            //cypress.env('login_password');
+           // cy.get('#id_username').type('mario');
+           // cy.get('#id_password').type('Mario@12');
             cy.get('.btn-primary').click();
         });
     
         // Travei na parte do preenchimento dos campos de senha, aparentemente o box que aparece está atrapalhando, preciso estudar sobre o elemento (me parece ser um ajax).
         it.skip('Acessar o site e criar uma nova conta', () => {
+            cy.visit('/');
             cy.get('.cc-btn').click();
             cy.get('.btn-account').click();
             cy.get(':nth-child(6) > .btn-reset').click();
@@ -33,6 +35,7 @@ describe('Testes de Login', () => {
 
         // Esse teste está OK, só preciso ver o funcionamento da estrutura de condições.
         it.skip('Exportar dados do perfil de usuário', () => {
+            cy.visit('/');
             cy.get('.cc-btn').click();
             cy.get('.btn-account').click();
             cy.get('#id_username').type('mario');
@@ -49,7 +52,7 @@ describe('Testes de Login', () => {
 
         // Início da edição das informações do perfil
         it.skip('Alterar dados do perfil de usuário', () => {
-            cy.visit('https://coalizao.hml.fabricadigital.com.br');
+            cy.visit('/');
             cy.get('.cc-btn').click();
             cy.get('.btn-account').click();
             cy.get('#id_username').type('mario');
