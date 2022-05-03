@@ -3,9 +3,6 @@
 
 describe('Testes de Conteúdo', () => {
 
-    //beforeEach(() => {
-      //  cy.visit('https://coalizao.hml.fabricadigital.com.br')
-    //})
             // Teste de avalização com o usuário logado.
             it.skip('Executar uma avaliação logado', () => {
                 cy.visit('/');
