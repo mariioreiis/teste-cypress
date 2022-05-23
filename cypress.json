@@ -1,4 +1,8 @@
 {
-    "baseUrl": "https://morty.fabricadigital.com.br/"
+    "baseUrl": "https://morty.fabricadigital.com.br/",
 
+    "env": {
+    "user": "mario",
+    "password": "Mario@12"
+    }
 }
