@@ -17,10 +17,7 @@ Cypress.Commands.add('login', function() {
     cy.get('#id_username').type(Cypress.env('user')).should('not.have.value')
     cy.get('#id_password').type(Cypress.env('password'), {log:false}).should('not.have.value')
     cy.get('.btn-primary').click()
-    //cy.get('.mt-2').should('be.visible')
     cy.get('.nav-item').should('be.visible')
-
-
 })
 
 //

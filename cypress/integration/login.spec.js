@@ -1,34 +1,81 @@
+/// <reference types="Cypress" />
 // Testes de Login
 
 describe('Testes de Login', () => {
 
-    beforeEach(() => {
+    beforeEach( function() {
         cy.visit('/')
       })
 
         // Teste está OK.
-        it.only('Acessar o site e logar na conta', () => {
+        it('Acessar o site e logar na conta', function() {
             cy.login()
         });
     
         // Travei na parte do preenchimento dos campos de senha, aparentemente o box que aparece está atrapalhando, preciso estudar sobre o elemento (me parece ser um ajax).
-        it('Acessar o site e criar uma nova conta', () => {
-            cy.get('.cc-btn').click();
-            cy.get('.btn-account').click();
-            cy.get(':nth-child(6) > .btn-reset').click();
-            cy.get('#id_username').type('marioreis');
-            cy.get('#id_first_name').type('Mario');
-            cy.get('#id_last_name').type('marioreis');
-            cy.get('#id_email').type('marioreis@123456.com');
-            cy.get('#id_password1').type('Lalalala12');
-            cy.get('#id_password2').type('Lalalala12');
-            cy.get('.disclaimer-modal-link').click();
-            //cy.get('#id_disclaimer').click();
-            // cy.get('#id_recaptcha').check();
+        it('Acessar o formulário e criar uma nova conta e após clicar em voltar', function() {
+            cy.get('.btn-account')
+            .should('be.visible')
+            .click()
+
+            cy.get(':nth-child(6) > .btn-reset')
+            .should('be.visible')
+            .click()
+
+            cy.get('.justify-content-between > .btn')
+            .should('be.visible')
+            .click()
+
+            cy.contains("h4", 'Login')
+            .should('be.visible')
         });
 
+        it.only('Criar uma nova conta no site', function(){
+            cy.get('.btn-account')
+            .should('be.visible')
+            .click()
+
+            cy.get(':nth-child(6) > .btn-reset')
+            .should('be.visible')
+            .click()
+
+            cy.get('#id_username')
+            .should('be.visible')
+            .clear()
+            .type(Cypress.env('user'))
+
+            cy.get('#id_first_name')
+            .should('be.visible')
+            .clear()
+            .type(Cypress.env('firstname'))
+
+            cy.get('#id_last_name')
+            .should('be.visible')
+            .clear()
+            .type(Cypress.env('lastname'))
+
+            cy.get('#id_email')
+            .should('be.visible')
+            .clear()
+            .type(Cypress.env('email'))
+
+
+            cy.get('#id_password1')
+            .should('be.visible')
+            .clear()
+            .type(Cypress.env('passwordnew'))
+
+            cy.contains('script', 'Requerimentos da senha').check()
+
+            cy.get('#id_password2')
+            .should('be.visible')
+            .clear()
+            .type(Cypress.env('passwordnew'))
+
+        })
         // Esse teste está OK, só preciso ver o funcionamento da estrutura de condições.
-        it.skip('Exportar dados do perfil de usuário', () => {
+        it('Exportar dados do perfil de usuário', function() {
+            type="application/javascript"
             cy.get('.cc-btn').click();
             cy.get('.btn-account').click();
             cy.get('#id_username').type('mario');
@@ -44,7 +91,7 @@ describe('Testes de Login', () => {
         });
 
         // Início da edição das informações do perfil
-        it.skip('Alterar dados do perfil de usuário', () => {
+        it('Alterar dados do perfil de usuário', function() {
             cy.get('.cc-btn').click();
             cy.get('.btn-account').click();
             cy.get('#id_username').type('mario');
